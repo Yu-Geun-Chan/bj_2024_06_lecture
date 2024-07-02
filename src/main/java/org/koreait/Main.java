@@ -6,15 +6,13 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int totalPrice = sc.nextInt();
         int num = sc.nextInt();
-        int sumPrice = 0;
+        String a = "int";
         for (int i = 1; i <= num; i++) {
-            int price = sc.nextInt();
-            int quantity = sc.nextInt();
-            sumPrice += price * quantity;
+            if (i % 4 == 0) {
+                a = "long " + a;
+            }
         }
-        if (totalPrice == sumPrice) System.out.println("Yes");
-        else if (totalPrice != sumPrice) System.out.println("No");
+        System.out.println(a);
     }
 }
