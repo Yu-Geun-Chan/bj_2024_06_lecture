@@ -1,18 +1,19 @@
 package org.koreait;
 
+import java.io.*;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int num = sc.nextInt();
-        String a = "int";
-        for (int i = 1; i <= num; i++) {
-            if (i % 4 == 0) {
-                a = "long " + a;
-            }
+    public static void main(String[] args) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
+        int T = Integer.parseInt(in.readLine());
+        for (int i = 0; i < T; i++) {
+            st = new StringTokenizer(in.readLine());
+            out.write(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()) + "\n");
         }
-        System.out.println(a);
+        out.close();
     }
 }
