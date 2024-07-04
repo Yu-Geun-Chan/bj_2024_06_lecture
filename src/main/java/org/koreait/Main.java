@@ -1,19 +1,22 @@
 package org.koreait;
 
-import java.io.*;
+import java.util.Arrays;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st;
-        int T = Integer.parseInt(in.readLine());
-        for (int i = 0; i < T; i++) {
-            st = new StringTokenizer(in.readLine());
-            out.write(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()) + "\n");
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
+        int[] arr = new int[num];
+
+        for (int i = 0; i < num; i++) {
+            int a = sc.nextInt();
+            arr[i] = a;
         }
-        out.close();
+        Arrays.sort(arr);
+        System.out.print(arr[0] + " ");
+        System.out.print(arr[num - 1]);
     }
 }
