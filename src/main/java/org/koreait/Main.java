@@ -7,11 +7,8 @@ class Main {
         Scanner sc = new Scanner(System.in);
 
         String cmd = sc.nextLine();
-        int n = sc.nextInt();
 
-        String[] cmdBits = cmd.split("");
-
-        System.out.println(cmdBits[n - 1]);
+        System.out.println(cmd.length());
 
     }
 }
