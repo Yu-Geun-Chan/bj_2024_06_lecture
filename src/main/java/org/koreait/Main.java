@@ -6,9 +6,17 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String cmd = sc.nextLine();
+        int n = sc.nextInt();
+        String cmd = null;
+        String[] cmds = new String[n];
 
-        System.out.println(cmd.length());
-
+        for (int i = 0; i < n; i++) {
+            cmd = sc.next();
+            String[] cmdBits = cmd.split("");
+            cmds[i] = cmdBits[0] + cmdBits[cmdBits.length - 1];
+        }
+        for (int i = 0; i < cmds.length; i++) {
+            System.out.println(cmds[i]);
+        }
     }
 }
