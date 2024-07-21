@@ -16,6 +16,7 @@ class Main {
                     System.out.print(cmd.charAt(j));
                 }
             }
+            System.out.println();
         }
     }
 }
