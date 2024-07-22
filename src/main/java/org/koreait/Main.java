@@ -2,33 +2,36 @@ package org.koreait;
 
 import java.util.Scanner;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int a; // i번째 바구니
-        int b; // j번째 바구니
-        int[] basket = new int[n]; // 바구니 배열
-        int[] reverse = new int[n]; // 뒤집는거 넣는 배열
+        String n1 = sc.nextLine();
+        String[] n1Bits = n1.split(" ");
+        String[] n2 = n1Bits[0].split("");
+        String[] n3 = n1Bits[1].split("");
+        int n_1 = 0;
+        int n_2 = 0;
 
-        for (int i = 0; i < n; i++) {
-            basket[i] = i+1; // 배열은 0부터 숫자는 1부터 시작이므로 +1
+        for (int i = 0; i < 3; i++) {
+            String change = n2[0];
+            n2[0] = n2[2];
+            n2[2] = change;
+            n_1 = Integer.parseInt(n2[0] + n2[1] + n2[2]);
         }
 
-        for (int i = 0; i < m; i++) {
-            a = sc.nextInt();
-            b = sc.nextInt();
-            for (int j = a; j <= b; j++) {
-                reverse[a + b - j - 1] = basket[j - 1]; // 숫자는 1부터 시작 배열은 0부터 시작, 따라서 -1 해야됨
-            }
-            for (int j = a; j <= b; j++) {
-                basket[j - 1] = reverse[j - 1];
-            }
+        for (int i = 0; i < 3; i++) {
+            String change = n3[0];
+            n3[0] = n3[2];
+            n3[2] = change;
+            n_2 = Integer.parseInt(n3[0] + n3[1] + n3[2]);
         }
-        for (int i = 0; i < n; i++) {
-            System.out.print(basket[i] + " ");
-        }
+
+        if (n_1 > n_2) {
+            System.out.println(n_1);
+        } else System.out.println(n_2);
+
+        sc.close();
     }
 }
+
