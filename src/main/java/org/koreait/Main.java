@@ -4,20 +4,22 @@ import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        int king = sc.nextInt();
-        int queen = sc.nextInt();
-        int rook = sc.nextInt();
-        int bishop = sc.nextInt();
-        int knight = sc.nextInt();
-        int pawn = sc.nextInt();
+        String cmd = sc.next();
+        boolean check = false;
 
-        System.out.print(1- king + " ");
-        System.out.print(1- queen + " ");
-        System.out.print(2- rook + " ");
-        System.out.print(2- bishop + " ");
-        System.out.print(2 - knight + " ");
-        System.out.print(8 - pawn);
+        for (int i = 0; i < cmd.length() / 2; i++) {
+            if (cmd.charAt(i) != cmd.charAt(cmd.length() - 1 - i)) {
+                check = false;
+            }
+        }
+
+        if (check == true) {
+            System.out.println(1);
+        } else System.out.println(0);
+
+        sc.close();
     }
 }
