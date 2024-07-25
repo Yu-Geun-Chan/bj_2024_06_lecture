@@ -1,25 +1,67 @@
 package org.koreait;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String cmd = sc.next();
-        boolean check = false;
+        String str = br.readLine();
 
-        for (int i = 0; i < cmd.length() / 2; i++) {
-            if (cmd.charAt(i) != cmd.charAt(cmd.length() - 1 - i)) {
-                check = false;
+        String[] alphabet = str.split("");
+
+        int count = 0;
+
+        for (int i = 0; i < alphabet.length; i++) {
+            if (alphabet[i].equals("c") && i != alphabet.length - 1) {
+                if (alphabet[i + 1].equals("=") || alphabet[i + 1].equals("-")) {
+                    i++;
+                }
             }
+            if (i < alphabet.length - 2) {
+                if (alphabet[i].equals("d") && i != alphabet.length - 2) {
+                    if (alphabet[i + 1].equals("z") && alphabet[i + 2].equals("=")) {
+                        i++;
+                    }
+                }
+            }
+
+            if (alphabet[i].equals("d") && i != alphabet.length - 1) {
+                if (alphabet[i + 1].equals("-")) {
+                    i++;
+                }
+            }
+
+            if (alphabet[i].equals("z") && i != alphabet.length - 1) {
+                if (alphabet[i + 1].equals("=")) {
+                    i++;
+                }
+            }
+
+            if (alphabet[i].equals("s") && i != alphabet.length - 1) {
+                if (alphabet[i + 1].equals("=")) {
+                    i++;
+                }
+            }
+
+            if (alphabet[i].equals("l") && i != alphabet.length - 1) {
+                if (alphabet[i + 1].equals("j")) {
+                    i++;
+                }
+            }
+
+            if (alphabet[i].equals("n") && i != alphabet.length - 1) {
+                if (alphabet[i + 1].equals("j")) {
+                    i++;
+                }
+            }
+            count++;
         }
+        System.out.println(count);
 
-        if (check == true) {
-            System.out.println(1);
-        } else System.out.println(0);
-
-        sc.close();
+        br.close();
     }
 }
