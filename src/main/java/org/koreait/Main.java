@@ -2,33 +2,29 @@ package org.koreait;
 
 import java.util.Scanner;
 
-class Main {
+public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();//
 
-        int n1 = sc.nextInt();
-        int n2 = sc.nextInt();
-        int n3 = sc.nextInt();
-
-        if(n1 == n2 && n2 == n3) {
-            System.out.println(10000 + n1 * 1000);
-        } else if (n1 == n2) {
-            System.out.println(1000 + n1 * 100);
-        } else if (n1 == n3) {
-            System.out.println(1000 + n1 * 100);
-        } else if (n2 == n3) {
-            System.out.println(1000 + n2 * 100);
-        } else {
-            if (n1 > n2 && n1 > n3) {
-                System.out.println(n1 * 100);
+        for (int i = 1; i <= num; i++) {
+            for (int j = i; j < num; j++) {
+                System.out.print(" ");
             }
-            if (n2 > n1 && n2 > n3) {
-                System.out.println(n2 * 100);
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("*");
             }
-            if (n3 > n1 && n3 > n2) {
-                System.out.println(n3 * 100);
-            }
+            System.out.println();
         }
-        sc.close();
+        for (int i = num - 1; i >= 1; i--) {
+            for (int j = num; j > i; j--) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 }
